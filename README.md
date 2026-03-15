@@ -9,7 +9,7 @@
 
 <!-- Animated Typing SVG -->
 <a href="https://github.com/inbharatai/SocialFlow">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=7C3AED&center=true&vCenter=true&repeat=true&width=700&height=45&lines=Generate+%26+Publish+to+LinkedIn%2C+Instagram+%26+X;GPT-4+%7C+DALL-E+3+%7C+Kling+AI+%7C+Playwright;Local-Only+%E2%80%A2+Encrypted+%E2%80%A2+Fully+Automated" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=7C3AED&center=true&vCenter=true&repeat=true&width=750&height=45&lines=Generate+%26+Publish+to+LinkedIn%2C+Instagram+%26+X;OpenAI+%7C+Anthropic+%7C+Gemini+%7C+Kling+AI;Choose+Your+AI+Provider+%E2%80%A2+Free+Tiers+Available;Local-Only+%E2%80%A2+Encrypted+%E2%80%A2+Fully+Automated" alt="Typing SVG" />
 </a>
 
 <br/><br/>
@@ -20,7 +20,7 @@
 <br/>
 
 <!-- Badge Row -->
-[![Version](https://img.shields.io/badge/v1.0.0-7C3AED?style=for-the-badge&label=version)](https://github.com/inbharatai/SocialFlow/releases)
+[![Version](https://img.shields.io/badge/v1.1.0-7C3AED?style=for-the-badge&label=version)](https://github.com/inbharatai/SocialFlow/releases)
 [![Build](https://img.shields.io/badge/passing-5B21B6?style=for-the-badge&logo=github-actions&logoColor=white&label=build)]()
 [![License](https://img.shields.io/badge/MIT-000080?style=for-the-badge&label=license)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-7C3AED?style=for-the-badge)](https://github.com/inbharatai/SocialFlow/pulls)
@@ -31,15 +31,16 @@
 ![Python](https://img.shields.io/badge/Python_3.12-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
-![GPT-4](https://img.shields.io/badge/GPT--4-412991?style=flat-square&logo=openai&logoColor=white)
+![GPT-4o](https://img.shields.io/badge/GPT--4o-412991?style=flat-square&logo=openai&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude_Haiku-6B4FBB?style=flat-square&logo=anthropic&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini_2.0_Flash-4285F4?style=flat-square&logo=google&logoColor=white)
 ![DALL-E 3](https://img.shields.io/badge/DALL--E_3-412991?style=flat-square&logo=openai&logoColor=white)
-![Claude](https://img.shields.io/badge/Claude-6B4FBB?style=flat-square&logo=anthropic&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 
 <br/>
 
-[**Get Started**](#quick-start) &nbsp;&middot;&nbsp; [**Features**](#features) &nbsp;&middot;&nbsp; [**Architecture**](#architecture) &nbsp;&middot;&nbsp; [**API Docs**](#api-reference) &nbsp;&middot;&nbsp; [**Contributing**](#contributing)
+[**Get Started**](#quick-start) &nbsp;&middot;&nbsp; [**AI Providers**](#ai-providers) &nbsp;&middot;&nbsp; [**Features**](#features) &nbsp;&middot;&nbsp; [**Architecture**](#architecture) &nbsp;&middot;&nbsp; [**API Docs**](#api-reference) &nbsp;&middot;&nbsp; [**Contributing**](#contributing)
 
 </div>
 
@@ -51,15 +52,101 @@
 
 ## What is SocialFlow?
 
-**SocialFlow** is an AI-powered social media automation tool that generates and publishes content to **LinkedIn**, **Instagram**, and **X (Twitter)** -- all from your local machine. It combines GPT-4 for content generation, DALL-E 3 for image creation, Kling AI for video production, and Playwright for browser-based publishing -- with AES-256 encrypted credential storage and zero cloud dependencies.
+**SocialFlow** is an AI-powered social media automation tool that generates and publishes content to **LinkedIn**, **Instagram**, and **X (Twitter)** — all from your local machine. It combines your choice of **OpenAI GPT-4o**, **Anthropic Claude**, or **Google Gemini** for content generation, **DALL-E 3** for images, **Kling AI** for video production, and **Playwright** for browser-based publishing — with AES-256 encrypted credential storage and zero cloud dependencies.
 
 <div align="center">
 
-> *"Generate, schedule, and publish -- without handing your credentials to a third party."*
+> *"Generate, schedule, and publish — without handing your credentials to a third party."*
 
 </div>
 
-Powered by GPT-4 and Claude -- content generation, image creation, video production, scheduling, and multi-platform publishing in one local tool.
+Now with **multi-provider AI support** — pick the model that fits your budget. Gemini and Claude offer free tiers, so you can start generating content at **zero cost**.
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=2,12,22&height=2&section=header" width="100%"/>
+
+<br/>
+
+## AI Providers
+
+<div align="center">
+
+SocialFlow lets you choose your AI text provider from **Settings** — switch at any time with no code changes. Video generation always uses Kling AI.
+
+<br/>
+
+<table>
+<tr>
+<th align="center">Provider</th>
+<th align="center">Model</th>
+<th align="center">Tier</th>
+<th align="center">Best For</th>
+<th align="center">Get Key</th>
+</tr>
+<tr>
+<td align="center">
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" />
+</td>
+<td align="center"><b>GPT-4o</b></td>
+<td align="center"><img src="https://img.shields.io/badge/Paid-f59e0b?style=flat-square" /></td>
+<td>Maximum quality &amp; instruction following</td>
+<td><a href="https://platform.openai.com/api-keys">platform.openai.com</a></td>
+</tr>
+<tr>
+<td align="center">
+  <img src="https://img.shields.io/badge/Anthropic-6B4FBB?style=flat-square&logo=anthropic&logoColor=white" />
+</td>
+<td align="center"><b>Claude Haiku</b></td>
+<td align="center"><img src="https://img.shields.io/badge/Free_Trial-8b5cf6?style=flat-square" /></td>
+<td>Fast, creative &amp; cost-efficient</td>
+<td><a href="https://console.anthropic.com">console.anthropic.com</a></td>
+</tr>
+<tr>
+<td align="center">
+  <img src="https://img.shields.io/badge/Google-4285F4?style=flat-square&logo=google&logoColor=white" />
+</td>
+<td align="center"><b>Gemini 2.0 Flash</b></td>
+<td align="center"><img src="https://img.shields.io/badge/Free_Tier-10b981?style=flat-square" /></td>
+<td>Generous free quota, great to start</td>
+<td><a href="https://aistudio.google.com/app/apikey">aistudio.google.com</a></td>
+</tr>
+</table>
+
+<br/>
+
+```
+Settings  →  🤖 AI Text Provider  →  Select card  →  Paste API key  →  Save
+```
+
+</div>
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=2,12,22&height=2&section=header" width="100%"/>
+
+<br/>
+
+## At a Glance
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center"><h3>20+</h3><sub>API Endpoints</sub></td>
+<td align="center"><h3>3</h3><sub>Platforms</sub></td>
+<td align="center"><h3>3</h3><sub>AI Providers</sub></td>
+<td align="center"><h3>6</h3><sub>Content Types</sub></td>
+<td align="center"><h3>AES-256</h3><sub>Encryption</sub></td>
+<td align="center"><h3>100%</h3><sub>Local</sub></td>
+</tr>
+</table>
+
+<br/>
+
+**v1.1 Released** &nbsp;&middot;&nbsp; **OpenAI + Anthropic + Gemini** &nbsp;&middot;&nbsp; **LinkedIn + Instagram + X** &nbsp;&middot;&nbsp; **DALL-E 3 + Kling AI** &nbsp;&middot;&nbsp; **Encrypted Credentials**
+
+</div>
 
 <br/>
 
@@ -76,45 +163,19 @@ Powered by GPT-4 and Claude -- content generation, image creation, video product
 
 | Feature | Description | Key Details |
 |:--------|:------------|:------------|
-| **AI Content Generation** | Generate posts, carousels, reel scripts, and threads via GPT-4 | Platform-specific tone and formatting for LinkedIn, Instagram, and X |
+| **Multi-Provider AI** | Choose OpenAI, Anthropic, or Gemini for text generation | Switch providers from the Settings UI — free tiers available |
+| **AI Content Generation** | Generate posts, carousels, reel scripts, and threads | Platform-specific tone and formatting for LinkedIn, Instagram, and X |
 | **AI Image Generation** | Create social media visuals with DALL-E 3 | Automatic carousel image sets, post thumbnails, custom prompts |
 | **AI Video Generation** | Text-to-video, image-to-video, and avatar videos via Kling AI | Lip sync, talking avatars, reel-ready vertical video |
-| **Browser Automation** | Publish directly to LinkedIn, Instagram, and X via Playwright | Session persistence -- no repeated logins; headless or visible mode |
+| **Browser Automation** | Publish directly to LinkedIn, Instagram, and X via Playwright | Session persistence — no repeated logins; headless or visible mode |
 | **Post Scheduling** | Schedule posts for future publishing with APScheduler | Cron-like scheduling, queue management, automatic retry |
 | **Encrypted Credentials** | AES-256 encryption for all stored platform credentials | Keys never leave your machine; encrypted at rest |
-| **Session Persistence** | Browser sessions saved locally -- log in once, publish forever | No re-authentication needed between runs |
+| **Session Persistence** | Browser sessions saved locally — log in once, publish forever | No re-authentication needed between runs |
 | **React Dashboard** | Single HTML React frontend for managing everything | Content preview, account management, publish controls |
 | **Multi-Format Content** | Posts, carousels, reels, threads, and image posts | Each format optimized for its target platform |
-| **Local-Only** | Everything runs on your machine -- no cloud, no SaaS, no subscriptions | Your data, your credentials, your control |
+| **Local-Only** | Everything runs on your machine — no cloud, no SaaS | Your data, your credentials, your control |
 
 </details>
-
-<br/>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=2,12,22&height=2&section=header" width="100%"/>
-
-<br/>
-
-## At a Glance
-
-<div align="center">
-
-<table>
-<tr>
-<td align="center"><h3>20+</h3><sub>API Endpoints</sub></td>
-<td align="center"><h3>3</h3><sub>Platforms</sub></td>
-<td align="center"><h3>3</h3><sub>AI Engines</sub></td>
-<td align="center"><h3>6</h3><sub>Content Types</sub></td>
-<td align="center"><h3>AES-256</h3><sub>Encryption</sub></td>
-<td align="center"><h3>100%</h3><sub>Local</sub></td>
-</tr>
-</table>
-
-<br/>
-
-**v1.0 Released** &nbsp;&middot;&nbsp; **LinkedIn + Instagram + X** &nbsp;&middot;&nbsp; **GPT-4 + DALL-E 3 + Kling AI** &nbsp;&middot;&nbsp; **Encrypted Credentials** &nbsp;&middot;&nbsp; **Browser Automation**
-
-</div>
 
 <br/>
 
@@ -128,12 +189,13 @@ Powered by GPT-4 and Claude -- content generation, image creation, video product
 
 | Decision | Reason |
 |:---------|:-------|
-| **Playwright over APIs** | No official publish APIs for most platforms -- browser automation is the reliable path |
-| **AES-256 Encryption** | Platform credentials encrypted at rest -- never stored in plain text |
+| **Multi-Provider AI** | Users pick their provider; swap between OpenAI, Anthropic, Gemini without code changes |
+| **Playwright over APIs** | No official publish APIs for most platforms — browser automation is the reliable path |
+| **AES-256 Encryption** | Platform credentials encrypted at rest — never stored in plain text |
 | **Session Persistence** | Browser state saved between runs so users authenticate once |
-| **Single HTML Frontend** | Zero build step -- one React file served by FastAPI, no Node.js needed in production |
+| **Single HTML Frontend** | Zero build step — one React file served by FastAPI, no Node.js needed |
 | **SQLite Storage** | Simple, portable, zero-config database for posts, accounts, and schedules |
-| **APScheduler** | In-process job scheduling -- no external queue or worker infrastructure needed |
+| **APScheduler** | In-process job scheduling — no external queue or worker infrastructure needed |
 
 <br/>
 
@@ -144,21 +206,21 @@ Powered by GPT-4 and Claude -- content generation, image creation, video product
 
 ```
 SocialFlow/
-|
-+-- backend/
-|   +-- main.py                     # FastAPI app, CORS, static serving
-|   +-- automation.py               # Playwright browser automation
-|   +-- requirements.txt            # Python dependencies
-|   +-- .env.example                # Environment template
-|
-+-- frontend/
-|   +-- index.html                  # Single-page React dashboard
-|
-+-- sessions/                       # Playwright browser sessions (gitignored)
-+-- uploads/                        # Uploaded media files (auto-created)
-+-- start.sh                        # Linux/macOS launcher
-+-- start.bat                       # Windows launcher
-+-- README.md
+│
+├── backend/
+│   ├── main.py                     # FastAPI app, multi-provider AI, CORS, static serving
+│   ├── automation.py               # Playwright browser automation
+│   ├── requirements.txt            # Python dependencies
+│   └── .env.example                # Environment template
+│
+├── frontend/
+│   └── index.html                  # Single-page React dashboard (incl. Settings)
+│
+├── sessions/                       # Playwright browser sessions (gitignored)
+├── uploads/                        # Uploaded media files (auto-created)
+├── start.sh                        # Linux/macOS launcher
+├── start.bat                       # Windows launcher
+└── README.md
 ```
 
 </details>
@@ -172,7 +234,7 @@ SocialFlow/
 ## Quick Start
 
 > [!TIP]
-> **Prerequisites:** Python 3.10+ &middot; OpenAI API key &middot; A Chromium-based browser (Playwright installs its own)
+> **Prerequisites:** Python 3.10+ &middot; At least one AI API key (Gemini has a free tier) &middot; A Chromium-based browser (Playwright installs its own)
 
 ### One-Command Setup
 
@@ -216,8 +278,8 @@ python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\act
 pip install -r requirements.txt
 playwright install chromium
 
-# 3. Environment
-cp .env.example .env                                 # then add your OPENAI_API_KEY
+# 3. Environment — add at least one AI provider key
+cp .env.example .env
 ```
 
 </details>
@@ -256,11 +318,14 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
 ![APScheduler](https://img.shields.io/badge/APScheduler-FF6F00?style=for-the-badge)
 
-### AI and Generation
-![GPT-4](https://img.shields.io/badge/GPT--4-412991?style=for-the-badge&logo=openai&logoColor=white)
+### AI — Text Generation (choose one)
+![GPT-4o](https://img.shields.io/badge/GPT--4o-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Claude Haiku](https://img.shields.io/badge/Claude_Haiku-6B4FBB?style=for-the-badge&logo=anthropic&logoColor=white)
+![Gemini Flash](https://img.shields.io/badge/Gemini_2.0_Flash-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
+### AI — Images & Video
 ![DALL-E 3](https://img.shields.io/badge/DALL--E_3-412991?style=for-the-badge&logo=openai&logoColor=white)
 ![Kling AI](https://img.shields.io/badge/Kling_AI-FF4444?style=for-the-badge)
-![Claude](https://img.shields.io/badge/Claude-6B4FBB?style=for-the-badge&logo=anthropic&logoColor=white)
 
 ### Frontend
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -313,14 +378,15 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 | Domain | Endpoint | Method | Description |
 |:-------|:---------|:-------|:------------|
 | **Health** | `/api/health` | GET | Server health check |
-| **Config** | `/api/config` | GET | Current configuration status |
+| **Config** | `/api/config` | GET | Current config — provider status, active AI provider |
+| | `/api/config` | POST | Update API keys and active AI provider |
 | **Accounts** | `/api/accounts` | GET | List all platform accounts |
 | | `/api/accounts` | POST | Add a new platform account |
 | | `/api/accounts/{id}` | PUT | Update account details |
 | | `/api/accounts/{id}` | DELETE | Remove an account |
 | | `/api/accounts/{id}/login` | POST | Browser login to platform |
 | | `/api/accounts/{id}/check` | GET | Check session validity |
-| **Generate** | `/api/generate` | POST | AI content generation (GPT-4) |
+| **Generate** | `/api/generate` | POST | AI content generation (active provider) |
 | | `/api/generate-carousel` | POST | Generate carousel with DALL-E 3 images |
 | **Video** | `/api/generate-video` | POST | Kling AI text-to-video or image-to-video |
 | | `/api/video-status/{task_id}` | GET | Check video generation status |
@@ -374,12 +440,15 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 | Variable | Required | Default | Description |
 |:---------|:--------:|:--------|:------------|
-| `OPENAI_API_KEY` | **Yes** | -- | API key for GPT-4 content generation and DALL-E 3 image generation |
-| `KLING_API_KEY` | No | -- | Kling AI API key for video generation (text-to-video, avatars, lip sync) |
+| `AI_PROVIDER` | No | `openai` | Active text AI provider: `openai` \| `anthropic` \| `gemini` |
+| `OPENAI_API_KEY` | If using OpenAI | — | GPT-4o content generation + DALL-E 3 image generation |
+| `ANTHROPIC_API_KEY` | If using Anthropic | — | Claude Haiku content generation (free trial credits on sign-up) |
+| `GEMINI_API_KEY` | If using Gemini | — | Gemini 2.0 Flash content generation (generous free tier) |
+| `KLING_API_KEY` | For video features | — | Kling AI video generation (text-to-video, avatars, lip sync) |
 | `HEADLESS` | No | `false` | Set to `true` to run Playwright browsers in headless mode |
 
 > [!IMPORTANT]
-> **Without `OPENAI_API_KEY`:** AI content generation and image generation will not work. Account management, manual posting, and scheduling remain functional.
+> **At least one text AI key is required** for content generation. We recommend starting with Gemini (free tier) or Anthropic (free trial credits).
 >
 > **Without `KLING_API_KEY`:** Video generation endpoints will return errors. All other features work normally.
 
@@ -402,13 +471,13 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 <br/>
 
 1. **Fork** the repository
-2. **Branch** -- `git checkout -b feature/amazing-feature`
-3. **Commit** -- `git commit -m 'Add amazing feature'`
-4. **Push** -- `git push origin feature/amazing-feature`
+2. **Branch** — `git checkout -b feature/amazing-feature`
+3. **Commit** — `git commit -m 'Add amazing feature'`
+4. **Push** — `git push origin feature/amazing-feature`
 5. **Open** a Pull Request
 
 > [!NOTE]
-> **Project conventions:** AES-256 for all credential storage &middot; Playwright for all browser automation &middot; AI calls through service modules &middot; SQLite for persistence &middot; Test with `/docs` before submitting
+> **Project conventions:** AES-256 for all credential storage &middot; Playwright for all browser automation &middot; AI calls through the provider dispatcher in `main.py` &middot; SQLite for persistence &middot; Test with `/docs` before submitting
 
 <br/>
 
@@ -418,7 +487,7 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 ## License
 
-This project is licensed under the **MIT License** -- see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 <br/>
 
@@ -430,7 +499,7 @@ This project is licensed under the **MIT License** -- see the [LICENSE](LICENSE)
 
 **Built with love for creators by [InBharat AI](https://github.com/inbharatai)**
 
-*Generate, schedule, and publish -- all from your local machine*
+*Generate, schedule, and publish — all from your local machine*
 
 <br/>
 
@@ -441,13 +510,14 @@ This project is licensed under the **MIT License** -- see the [LICENSE](LICENSE)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
-![GPT-4](https://img.shields.io/badge/GPT--4-412991?style=flat-square&logo=openai&logoColor=white)
+![GPT-4o](https://img.shields.io/badge/GPT--4o-412991?style=flat-square&logo=openai&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude_Haiku-6B4FBB?style=flat-square&logo=anthropic&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini_Flash-4285F4?style=flat-square&logo=google&logoColor=white)
 ![DALL-E 3](https://img.shields.io/badge/DALL--E_3-412991?style=flat-square&logo=openai&logoColor=white)
-![Claude](https://img.shields.io/badge/Claude-6B4FBB?style=flat-square&logo=anthropic&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 
-<sub>If SocialFlow helped you, give it a star -- it means the world to us!</sub>
+<sub>If SocialFlow helped you, give it a star — it means the world to us!</sub>
 
 <br/>
 

@@ -55,6 +55,9 @@ def decrypt(text: str) -> str:
 def load_config():
     return {
         "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY", ""),
+        "ANTHROPIC_API_KEY": os.getenv("ANTHROPIC_API_KEY", ""),
+        "GEMINI_API_KEY": os.getenv("GEMINI_API_KEY", ""),
+        "AI_PROVIDER": os.getenv("AI_PROVIDER", "openai"),  # openai, anthropic, gemini
         "KLING_API_KEY": os.getenv("KLING_API_KEY", ""),
         "HEADLESS": os.getenv("HEADLESS", "false").lower() == "true"
     }
@@ -179,15 +182,29 @@ class PostUpdate(BaseModel):
     scheduled_time: Optional[datetime] = None
     status: Optional[str] = None
 
-# ============== AI CONTENT GENERATION (OpenAI) ==============
+# ============== AI CONTENT GENERATION (Multi-Provider) ==============
+SYSTEM_PROMPT = "You are an expert social media content creator. Create engaging, viral-worthy content optimized for each platform. Be creative, authentic, and focus on value."
+
 async def generate_content_ai(prompt: str) -> str:
-    """Generate content using OpenAI GPT-4"""
+    """Generate content using the configured AI provider (OpenAI, Anthropic, or Gemini)"""
+    provider = CONFIG.get("AI_PROVIDER", "openai").lower()
+
+    if provider == "anthropic":
+        return await _generate_anthropic(prompt)
+    elif provider == "gemini":
+        return await _generate_gemini(prompt)
+    else:
+        return await _generate_openai(prompt)
+
+
+async def _generate_openai(prompt: str) -> str:
+    """Generate content using OpenAI GPT-4o"""
     if not CONFIG["OPENAI_API_KEY"]:
         raise HTTPException(
-            status_code=400, 
-            detail="OpenAI API key not configured. Add OPENAI_API_KEY to your .env file. Get your key at https://platform.openai.com/api-keys"
+            status_code=400,
+            detail="OpenAI API key not configured. Add OPENAI_API_KEY to your .env file."
         )
-    
+
     async with httpx.AsyncClient() as client:
         response = await client.post(
             "https://api.openai.com/v1/chat/completions",
@@ -196,12 +213,9 @@ async def generate_content_ai(prompt: str) -> str:
                 "Content-Type": "application/json"
             },
             json={
-                "model": "gpt-4",
+                "model": "gpt-4o",
                 "messages": [
-                    {
-                        "role": "system", 
-                        "content": "You are an expert social media content creator. Create engaging, viral-worthy content optimized for each platform. Be creative, authentic, and focus on value."
-                    },
+                    {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": prompt}
                 ],
                 "max_tokens": 2000,
@@ -209,16 +223,83 @@ async def generate_content_ai(prompt: str) -> str:
             },
             timeout=60.0
         )
-        
+
         if response.status_code != 200:
             error_detail = response.text
             if "invalid_api_key" in error_detail:
-                raise HTTPException(status_code=401, detail="Invalid OpenAI API key. Check your key at https://platform.openai.com/api-keys")
+                raise HTTPException(status_code=401, detail="Invalid OpenAI API key.")
             if "insufficient_quota" in error_detail:
-                raise HTTPException(status_code=402, detail="No OpenAI credits. Add payment method at https://platform.openai.com/account/billing")
+                raise HTTPException(status_code=402, detail="No OpenAI credits. Add payment method at platform.openai.com/account/billing")
             raise HTTPException(status_code=response.status_code, detail=error_detail)
-        
+
         return response.json()["choices"][0]["message"]["content"]
+
+
+async def _generate_anthropic(prompt: str) -> str:
+    """Generate content using Anthropic Claude (free trial / paid)"""
+    if not CONFIG["ANTHROPIC_API_KEY"]:
+        raise HTTPException(
+            status_code=400,
+            detail="Anthropic API key not configured. Add ANTHROPIC_API_KEY to your .env file. Get your key at console.anthropic.com"
+        )
+
+    async with httpx.AsyncClient() as client:
+        response = await client.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": CONFIG["ANTHROPIC_API_KEY"],
+                "anthropic-version": "2023-06-01",
+                "Content-Type": "application/json"
+            },
+            json={
+                "model": "claude-haiku-4-5-20251001",
+                "max_tokens": 2000,
+                "system": SYSTEM_PROMPT,
+                "messages": [
+                    {"role": "user", "content": prompt}
+                ]
+            },
+            timeout=60.0
+        )
+
+        if response.status_code != 200:
+            error_detail = response.text
+            if "authentication_error" in error_detail:
+                raise HTTPException(status_code=401, detail="Invalid Anthropic API key.")
+            if "credit_balance_too_low" in error_detail:
+                raise HTTPException(status_code=402, detail="Insufficient Anthropic credits.")
+            raise HTTPException(status_code=response.status_code, detail=error_detail)
+
+        return response.json()["content"][0]["text"]
+
+
+async def _generate_gemini(prompt: str) -> str:
+    """Generate content using Google Gemini (free tier available)"""
+    if not CONFIG["GEMINI_API_KEY"]:
+        raise HTTPException(
+            status_code=400,
+            detail="Gemini API key not configured. Add GEMINI_API_KEY to your .env file. Get your key at aistudio.google.com"
+        )
+
+    async with httpx.AsyncClient() as client:
+        response = await client.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={CONFIG['GEMINI_API_KEY']}",
+            headers={"Content-Type": "application/json"},
+            json={
+                "system_instruction": {"parts": [{"text": SYSTEM_PROMPT}]},
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"maxOutputTokens": 2000, "temperature": 0.8}
+            },
+            timeout=60.0
+        )
+
+        if response.status_code != 200:
+            error_detail = response.text
+            if "API_KEY_INVALID" in error_detail:
+                raise HTTPException(status_code=401, detail="Invalid Gemini API key.")
+            raise HTTPException(status_code=response.status_code, detail=error_detail)
+
+        return response.json()["candidates"][0]["content"]["parts"][0]["text"]
 
 
 async def generate_image_dalle(prompt: str, size: str = "1024x1024") -> str:
@@ -1154,12 +1235,18 @@ async def upload_file(file: UploadFile = File(...)):
 async def get_config():
     return {
         "openai_configured": bool(CONFIG["OPENAI_API_KEY"]),
+        "anthropic_configured": bool(CONFIG["ANTHROPIC_API_KEY"]),
+        "gemini_configured": bool(CONFIG["GEMINI_API_KEY"]),
+        "ai_provider": CONFIG.get("AI_PROVIDER", "openai"),
         "kling_configured": bool(CONFIG["KLING_API_KEY"]),
         "headless_mode": CONFIG["HEADLESS"]
     }
 
 class ConfigUpdate(BaseModel):
     OPENAI_API_KEY: Optional[str] = None
+    ANTHROPIC_API_KEY: Optional[str] = None
+    GEMINI_API_KEY: Optional[str] = None
+    AI_PROVIDER: Optional[str] = None
     KLING_API_KEY: Optional[str] = None
     HEADLESS: Optional[bool] = None
 
