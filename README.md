@@ -9,7 +9,7 @@
 
 <!-- Animated Typing SVG -->
 <a href="https://github.com/inbharatai/SocialFlow">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=7C3AED&center=true&vCenter=true&repeat=true&width=750&height=45&lines=Generate+%26+Publish+to+LinkedIn%2C+Instagram+%26+X;OpenAI+%7C+Anthropic+%7C+Gemini+%7C+Kling+AI;Choose+Your+AI+Provider+%E2%80%A2+Free+Tiers+Available;Local-Only+%E2%80%A2+Encrypted+%E2%80%A2+Fully+Automated" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=7C3AED&center=true&vCenter=true&repeat=true&width=750&height=45&lines=Generate+%26+Publish+to+12+Platforms;OpenAI+%7C+Anthropic+%7C+Gemini+%7C+HeyGen+%7C+Ollama;Choose+Your+AI+Provider+%E2%80%A2+Free+Tiers+Available;Local-Only+%E2%80%A2+Encrypted+%E2%80%A2+Fully+Automated" alt="Typing SVG" />
 </a>
 
 <br/><br/>
@@ -20,7 +20,7 @@
 <br/>
 
 <!-- Badge Row -->
-[![Version](https://img.shields.io/badge/v1.1.0-7C3AED?style=for-the-badge&label=version)](https://github.com/inbharatai/SocialFlow/releases)
+[![Version](https://img.shields.io/badge/v2.0.0-7C3AED?style=for-the-badge&label=version)](https://github.com/inbharatai/SocialFlow/releases)
 [![Build](https://img.shields.io/badge/passing-5B21B6?style=for-the-badge&logo=github-actions&logoColor=white&label=build)]()
 [![License](https://img.shields.io/badge/MIT-000080?style=for-the-badge&label=license)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-7C3AED?style=for-the-badge)](https://github.com/inbharatai/SocialFlow/pulls)
@@ -52,7 +52,7 @@
 
 ## What is SocialFlow?
 
-**SocialFlow** is an AI-powered social media automation tool that generates and publishes content to **LinkedIn**, **Instagram**, and **X (Twitter)** — all from your local machine. It combines your choice of **OpenAI GPT-4o**, **Anthropic Claude**, or **Google Gemini** for content generation, **DALL-E 3** for images, **Kling AI** for video production, and **Playwright** for browser-based publishing — with AES-256 encrypted credential storage and zero cloud dependencies.
+**SocialFlow** is an AI-powered social media automation engine that generates and publishes content to **12 platforms** — LinkedIn, Instagram, X, Facebook, Reddit, Medium, Substack, Discord, beehiiv, MailerLite, Brevo, and HeyGen — all from your local machine. It combines **OpenAI GPT-4o**, **Anthropic Claude**, **Google Gemini**, or **local Ollama models** for content generation, **HeyGen** for AI video production, **post-publish analytics**, and **Playwright** for browser-based publishing — with AES-256 encrypted credentials and zero cloud dependencies.
 
 <div align="center">
 
@@ -72,7 +72,7 @@ Now with **multi-provider AI support** — pick the model that fits your budget.
 
 <div align="center">
 
-SocialFlow lets you choose your AI text provider from **Settings** — switch at any time with no code changes. Video generation always uses Kling AI.
+SocialFlow lets you choose your AI text provider from **Settings** — switch at any time with no code changes. Video generation always uses HeyGen.
 
 <br/>
 
@@ -133,10 +133,10 @@ Settings  →  🤖 AI Text Provider  →  Select card  →  Paste API key  → 
 
 <table>
 <tr>
-<td align="center"><h3>20+</h3><sub>API Endpoints</sub></td>
-<td align="center"><h3>3</h3><sub>Platforms</sub></td>
+<td align="center"><h3>53+</h3><sub>API Endpoints</sub></td>
+<td align="center"><h3>12</h3><sub>Platforms</sub></td>
 <td align="center"><h3>3</h3><sub>AI Providers</sub></td>
-<td align="center"><h3>6</h3><sub>Content Types</sub></td>
+<td align="center"><h3>10+</h3><sub>Content Types</sub></td>
 <td align="center"><h3>AES-256</h3><sub>Encryption</sub></td>
 <td align="center"><h3>100%</h3><sub>Local</sub></td>
 </tr>
@@ -144,7 +144,7 @@ Settings  →  🤖 AI Text Provider  →  Select card  →  Paste API key  → 
 
 <br/>
 
-**v1.1 Released** &nbsp;&middot;&nbsp; **OpenAI + Anthropic + Gemini** &nbsp;&middot;&nbsp; **LinkedIn + Instagram + X** &nbsp;&middot;&nbsp; **DALL-E 3 + Kling AI** &nbsp;&middot;&nbsp; **Encrypted Credentials**
+**v2.0 Released** &nbsp;&middot;&nbsp; **12 Platforms** &nbsp;&middot;&nbsp; **HeyGen Video** &nbsp;&middot;&nbsp; **Analytics Engine** &nbsp;&middot;&nbsp; **OpenClaw Bridge** &nbsp;&middot;&nbsp; **Visual Content**
 
 </div>
 
@@ -166,7 +166,7 @@ Settings  →  🤖 AI Text Provider  →  Select card  →  Paste API key  → 
 | **Multi-Provider AI** | Choose OpenAI, Anthropic, or Gemini for text generation | Switch providers from the Settings UI — free tiers available |
 | **AI Content Generation** | Generate posts, carousels, reel scripts, and threads | Platform-specific tone and formatting for LinkedIn, Instagram, and X |
 | **AI Image Generation** | Create social media visuals with DALL-E 3 | Automatic carousel image sets, post thumbnails, custom prompts |
-| **AI Video Generation** | Text-to-video, image-to-video, and avatar videos via Kling AI | Lip sync, talking avatars, reel-ready vertical video |
+| **AI Video Generation** | Text-to-video, image-to-video, and avatar videos via HeyGen | Lip sync, talking avatars, reel-ready vertical video |
 | **Browser Automation** | Publish directly to LinkedIn, Instagram, and X via Playwright | Session persistence — no repeated logins; headless or visible mode |
 | **Post Scheduling** | Schedule posts for future publishing with APScheduler | Cron-like scheduling, queue management, automatic retry |
 | **Encrypted Credentials** | AES-256 encryption for all stored platform credentials | Keys never leave your machine; encrypted at rest |
@@ -208,13 +208,20 @@ Settings  →  🤖 AI Text Provider  →  Select card  →  Paste API key  → 
 SocialFlow/
 │
 ├── backend/
-│   ├── main.py                     # FastAPI app, multi-provider AI, CORS, static serving
-│   ├── automation.py               # Playwright browser automation
+│   ├── main.py                     # FastAPI app, 53+ endpoints, multi-provider AI
+│   ├── automation.py               # LinkedIn, Instagram, X browser automation
+│   ├── automation_extended.py      # Facebook, Reddit, Medium, Substack, Discord, Email, HeyGen
+│   ├── heygen_adapter.py           # HeyGen native video adapter + 6-state job machine
+│   ├── heygen_routes.py            # HeyGen API endpoints (15+ routes)
+│   ├── asset_inventory.py          # Content asset tracking + distribution queue
+│   ├── analytics_store.py          # Post-publish performance analytics (SQLite)
+│   ├── visual_content_routes.py    # Visual brief generation API
+│   ├── openclaw_bridge.py          # OpenClaw AI CMO integration bridge
 │   ├── requirements.txt            # Python dependencies
 │   └── .env.example                # Environment template
 │
 ├── frontend/
-│   └── index.html                  # Single-page React dashboard (incl. Settings)
+│   └── index.html                  # Single-page React dashboard
 │
 ├── sessions/                       # Playwright browser sessions (gitignored)
 ├── uploads/                        # Uploaded media files (auto-created)
@@ -325,7 +332,7 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 ### AI — Images & Video
 ![DALL-E 3](https://img.shields.io/badge/DALL--E_3-412991?style=for-the-badge&logo=openai&logoColor=white)
-![Kling AI](https://img.shields.io/badge/Kling_AI-FF4444?style=for-the-badge)
+![HeyGen](https://img.shields.io/badge/HeyGen_AI-FF4444?style=for-the-badge)
 
 ### Frontend
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -352,9 +359,18 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 <td align="center"><b>Content Types</b></td>
 <td align="center"><b>Automation</b></td>
 </tr>
-<tr><td><b>LinkedIn</b></td><td>Posts, Carousels, Reel Scripts</td><td>Login, Publish, Session Persist</td></tr>
-<tr><td><b>Instagram</b></td><td>Posts with Images, Carousels</td><td>Login, Publish, Session Persist</td></tr>
-<tr><td><b>X (Twitter)</b></td><td>Tweets, Threads</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>LinkedIn</b></td><td>Posts, Carousels, Video</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>Instagram</b></td><td>Posts, Carousels, Reels</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>X (Twitter)</b></td><td>Tweets, Threads, Video</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>Facebook</b></td><td>Posts, Images, Links</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>Reddit</b></td><td>Posts, Links, Comments</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>Medium</b></td><td>Articles, Stories</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>Substack</b></td><td>Newsletters, Posts</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>Discord</b></td><td>Announcements, Updates</td><td>Webhook API</td></tr>
+<tr><td><b>HeyGen</b></td><td>Avatar Videos, Talking Head</td><td>Browser Automation, Job Tracking</td></tr>
+<tr><td><b>beehiiv</b></td><td>Email Newsletters</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>MailerLite</b></td><td>Email Campaigns</td><td>Login, Publish, Session Persist</td></tr>
+<tr><td><b>Brevo</b></td><td>Email Marketing</td><td>Login, Publish, Session Persist</td></tr>
 </table>
 
 </div>
@@ -388,7 +404,7 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 | | `/api/accounts/{id}/check` | GET | Check session validity |
 | **Generate** | `/api/generate` | POST | AI content generation (active provider) |
 | | `/api/generate-carousel` | POST | Generate carousel with DALL-E 3 images |
-| **Video** | `/api/generate-video` | POST | Kling AI text-to-video or image-to-video |
+| **Video** | `/api/generate-video` | POST | HeyGen text-to-video or image-to-video |
 | | `/api/video-status/{task_id}` | GET | Check video generation status |
 | | `/api/generate-reel` | POST | Generate reel script + video combo |
 | | `/api/generate-avatar` | POST | Talking avatar video |
@@ -444,13 +460,13 @@ cd backend && uvicorn main:app --reload --host 127.0.0.1 --port 8000
 | `OPENAI_API_KEY` | If using OpenAI | — | GPT-4o content generation + DALL-E 3 image generation |
 | `ANTHROPIC_API_KEY` | If using Anthropic | — | Claude Haiku content generation (free trial credits on sign-up) |
 | `GEMINI_API_KEY` | If using Gemini | — | Gemini 2.0 Flash content generation (generous free tier) |
-| `KLING_API_KEY` | For video features | — | Kling AI video generation (text-to-video, avatars, lip sync) |
+| `HEYGEN_PASSWORD` | For video features | — | HeyGen video generation (text-to-video, avatars, lip sync) |
 | `HEADLESS` | No | `false` | Set to `true` to run Playwright browsers in headless mode |
 
 > [!IMPORTANT]
 > **At least one text AI key is required** for content generation. We recommend starting with Gemini (free tier) or Anthropic (free trial credits).
 >
-> **Without `KLING_API_KEY`:** Video generation endpoints will return errors. All other features work normally.
+> **Without `HEYGEN_PASSWORD`:** Video generation endpoints will return errors. All other features work normally.
 
 </details>
 
@@ -497,9 +513,11 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 <br/>
 
-**Built with love for creators by [InBharat AI](https://github.com/inbharatai)**
+**Built by [INBharat AI](https://github.com/inbharatai) · [info@inbharat.ai](mailto:info@inbharat.ai)**
 
-*Generate, schedule, and publish — all from your local machine*
+*Generate, schedule, and publish to 12 platforms — all from your local machine*
+
+`#SocialFlow` · `#AIMarketing` · `#OpenSource` · `#SocialMediaAutomation` · `#HeyGen` · `#ContentOps` · `#SoloBuilder` · `#LocalAI` · `#BuildInPublic`
 
 <br/>
 

@@ -26,6 +26,12 @@ from apscheduler.triggers.date import DateTrigger
 from cryptography.fernet import Fernet
 
 from automation import get_automation, LinkedInAutomation, InstagramAutomation, TwitterAutomation
+from automation_extended import get_automation_extended
+from openclaw_bridge import router as openclaw_router
+from heygen_routes import router as heygen_router
+from asset_inventory import init_asset_tables
+from analytics_store import init_analytics_tables, register_analytics_routes
+from visual_content_routes import router as visual_router
 
 # ============== CONFIG ==============
 DATABASE_PATH = "socialflow.db"
@@ -58,7 +64,8 @@ def load_config():
         "ANTHROPIC_API_KEY": os.getenv("ANTHROPIC_API_KEY", ""),
         "GEMINI_API_KEY": os.getenv("GEMINI_API_KEY", ""),
         "AI_PROVIDER": os.getenv("AI_PROVIDER", "openai"),  # openai, anthropic, gemini
-        "KLING_API_KEY": os.getenv("KLING_API_KEY", ""),
+        "HEYGEN_EMAIL": os.getenv("HEYGEN_EMAIL", ""),
+        "HEYGEN_PASSWORD": os.getenv("HEYGEN_PASSWORD", ""),
         "HEADLESS": os.getenv("HEADLESS", "false").lower() == "true"
     }
 
@@ -612,11 +619,23 @@ app = FastAPI(title="SocialFlow", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8000", "http://127.0.0.1:8000", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Register OpenClaw bridge routes
+app.include_router(openclaw_router)
+# Register HeyGen video + asset inventory routes
+app.include_router(heygen_router)
+# Initialize asset inventory tables
+init_asset_tables()
+# Initialize analytics tables and routes
+init_analytics_tables()
+register_analytics_routes(app)
+# Register visual content routes
+app.include_router(visual_router)
 
 # Serve frontend
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
@@ -1259,6 +1278,85 @@ async def update_config(new_config: ConfigUpdate):
     return {"updated": True}
 
 
+# --- Extended Platform Login/Post (Facebook, Reddit, Medium, Substack, Discord, HeyGen, Email) ---
+@app.post("/api/accounts/{platform}/login-extended")
+async def login_extended(platform: str):
+    """Login to extended platforms (Facebook, Reddit, Medium, Substack, HeyGen, beehiiv, etc.)"""
+    conn = get_db()
+    c = conn.cursor()
+    c.execute("SELECT * FROM accounts WHERE platform = ?", (platform.lower(),))
+    row = c.fetchone()
+
+    if not row:
+        conn.close()
+        raise HTTPException(status_code=404, detail=f"No account saved for {platform}")
+
+    account = dict(row)
+    password = decrypt(account["password_encrypted"])
+
+    try:
+        auto = get_automation_extended(platform, headless=False)
+        result = await auto.login(account["username"], password)
+        if hasattr(auto, 'close'):
+            await auto.close()
+
+        if result.get("success"):
+            c.execute(
+                "UPDATE accounts SET is_logged_in = 1, last_login = ? WHERE platform = ?",
+                (datetime.now().isoformat(), platform.lower())
+            )
+            conn.commit()
+
+        conn.close()
+        return result
+
+    except Exception as e:
+        conn.close()
+        return {"success": False, "message": str(e)}
+
+
+@app.post("/api/posts/{post_id}/publish-extended")
+async def publish_extended(post_id: int, background_tasks: BackgroundTasks):
+    """Publish a post via extended platform automation"""
+    conn = get_db()
+    c = conn.cursor()
+    c.execute("SELECT * FROM posts WHERE id = ?", (post_id,))
+    post = c.fetchone()
+    if not post:
+        conn.close()
+        raise HTTPException(status_code=404, detail="Post not found")
+
+    post = dict(post)
+    c.execute("UPDATE posts SET status = 'publishing' WHERE id = ?", (post_id,))
+    conn.commit()
+    conn.close()
+
+    async def do_publish():
+        conn2 = get_db()
+        c2 = conn2.cursor()
+        try:
+            auto = get_automation_extended(post["platform"], headless=CONFIG["HEADLESS"])
+            media = json.loads(post["media_paths"]) if post["media_paths"] else None
+            result = await auto.post(post["content"], media)
+            if hasattr(auto, 'close'):
+                await auto.close()
+
+            if result.get("success"):
+                c2.execute("UPDATE posts SET status = 'published', published_at = ? WHERE id = ?",
+                          (datetime.now().isoformat(), post_id))
+            else:
+                c2.execute("UPDATE posts SET status = 'failed', error_message = ? WHERE id = ?",
+                          (result.get("message", "Unknown error"), post_id))
+        except Exception as e:
+            c2.execute("UPDATE posts SET status = 'failed', error_message = ? WHERE id = ?",
+                      (str(e), post_id))
+        conn2.commit()
+        conn2.close()
+
+    background_tasks.add_task(do_publish)
+    return {"message": f"Publishing to {post['platform']} started"}
+
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)

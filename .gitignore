@@ -13,6 +13,14 @@ venv/
 
 # Database
 *.db
+*.sqlite3
+
+# Runtime data
+backend/heygen_jobs.json
+backend/openclaw_bridge_log.json
+backend/sessions/
+backend/uploads/
+._*
 
 # Sessions & uploads
 sessions/
