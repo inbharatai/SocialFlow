@@ -62,6 +62,9 @@
 
 Now with **multi-provider AI support** — pick the model that fits your budget. Gemini and Claude offer free tiers, so you can start generating content at **zero cost**.
 
+> [!IMPORTANT]
+> **When used with [OpenClaw AI CMO](https://github.com/inbharatai/OpenClaw-AI-CMO), no paid API keys are needed.** OpenClaw generates all content locally using Ollama + open-source models. SocialFlow then handles publishing only — which uses browser automation, not APIs. The API keys below are only required if you use SocialFlow **standalone** for content generation.
+
 <br/>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=2,12,22&height=2&section=header" width="100%"/>
